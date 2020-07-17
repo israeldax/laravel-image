@@ -1,0 +1,7 @@
+# Rodar composer do container
+# Prestar atenção em como fiz com a permissão
+
+docker run --rm --interactive --tty \
+  --volume $PWD:/app \
+  --user $(id -u):$(id -g) \
+  composer create-project
