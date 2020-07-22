@@ -6,7 +6,7 @@ services:
     build: .
     # image: israeldax/daxlaravelprod:latest
     container_name: app
-    entrypoint: dockerize -wait tcp://db:3306 -timeout 40s ./.docker/entrypoint.sh
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 40s ./.docker/app/entrypoint.sh
     volumes:
       - .:/var/www/
     networks:
@@ -20,6 +20,10 @@ services:
   nginx:
     build: .docker/nginx
     container_name: nginx
+    entrypoint: dockerize -template /var/www/.docker/nginx/dockerize.nginx.conf:/etc/nginx/conf.d/nginx.conf nginx
+    environment:
+      - APP_HOST=app
+      - APP_PORT=9000
     restart: always
     tty: true
     volumes:
@@ -59,4 +63,3 @@ services:
 networks:
   app-network:
     driver: bridge
-
