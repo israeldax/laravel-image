@@ -8,8 +8,9 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 RUN rm /etc/nginx/conf.d/default.conf
-COPY ./nginx.conf /etc/nginx/conf.d
 
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+WORKDIR /var/www/
 
 EXPOSE 8080
+
+ENTRYPOINT [ "./.docker/nginx/entrypoint.sh" ]

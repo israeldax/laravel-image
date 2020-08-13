@@ -2,6 +2,8 @@
 
 composer install
 
+dockerize -wait tcp://db:3306 -timeout 120s
+
 php artisan key:generate
 
 php artisan config:cache

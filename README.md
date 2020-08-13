@@ -1,5 +1,30 @@
 ### https://hub.docker.com/repository/docker/israeldax/daxlaravelprod
 
+# Challenge Docker Compose
+Run an laravel application with docker-compose
+
+#### Services
+- Nginx
+- PHP-FPM
+- Redis
+- MySQL
+
+>This is a challenge from the module **DevOps** from the course **Developing Modern and Scalable Applications with Microservices**.
+
+### Lessons Learned
+- Docker
+- Docker Compose
+
+## Requirements
+Docker installed
+
+## How to Run
+After clone the repository run:
+``` docker-compose up -d ```
+
+## Links
+[- Small go image challenge](https://github.com/israeldax/desafio-small-go-image)
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">

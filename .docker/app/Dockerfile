@@ -1,4 +1,7 @@
 FROM php:7.3.6-fpm-alpine3.9
+
+ARG APP_PORT
+
 RUN apk add --no-cache shadow openssl bash mysql-client nodejs npm
 RUN docker-php-ext-install pdo pdo_mysql
 
@@ -17,6 +20,6 @@ RUN ln -s public html
 RUN usermod -u 1000 www-data
 USER www-data
 
-EXPOSE 9000
+EXPOSE $APP_PORT
 
-ENTRYPOINT ["php-fpm"]
+ENTRYPOINT [".docker/app/entrypoint.sh"]
